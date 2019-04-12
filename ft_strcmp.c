@@ -6,7 +6,7 @@
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 12:25:45 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/12 18:42:19 by tlorine          ###   ########.fr       */
+/*   Updated: 2019/04/12 21:27:45 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 		if (s1[i] != s2[i])
 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
-	}	
-	return(0);
+	}
+	return (0);
 }

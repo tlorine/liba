@@ -6,15 +6,15 @@
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:34:27 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/12 15:10:03 by tlorine          ###   ########.fr       */
+/*   Updated: 2019/04/12 21:19:12 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
-	int i;
-	int minus;
-	long long int nb;
+	int				i;
+	int				minus;
+	long long int	nb;
 
 	i = 0;
 	nb = 0;

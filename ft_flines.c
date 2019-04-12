@@ -6,13 +6,13 @@
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 17:39:52 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/11 18:49:41 by tlorine          ###   ########.fr       */
+/*   Updated: 2019/04/12 21:32:05 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char ** ft_flines(char **p, char const *s, char c)
+char	**ft_flines(char **p, char const *s, char c)
 {
 	int i;
 	int n;
@@ -21,11 +21,11 @@ char ** ft_flines(char **p, char const *s, char c)
 	n = 0;
 	h = 0;
 	i = 0;
-	while(s[i] != '\0' && n < ft_qlines(s, c))
+	while (s[i] != '\0' && n < ft_qlines(s, c))
 	{
-		while(s[i] == c)
+		while (s[i] == c)
 			i++;
-		while(s[i] != c && s[i] != '\0')
+		while (s[i] != c && s[i] != '\0')
 		{
 			p[n][h] = s[i];
 			i++;
@@ -36,5 +36,5 @@ char ** ft_flines(char **p, char const *s, char c)
 		n++;
 	}
 	p[n] = 0;
-	return(p);
+	return (p);
 }
