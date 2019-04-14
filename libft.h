@@ -6,7 +6,7 @@
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 20:24:41 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/11 21:14:40 by tlorine          ###   ########.fr       */
+/*   Updated: 2019/04/14 21:24:23 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string.h>
 # include <unistd.h>
+# include <stdlib.h>
 
 typedef struct		s_list
 {
@@ -81,5 +82,16 @@ char				*ft_itoa(int n);
 int					ft_qlines(char const *s, char c);
 char				**ft_flines(char **p, char const *s, char c);
 char				**ft_strsplit(char const *s, char c);
+size_t				ft_strlcat\
+					(char *restrict dst, const char *restrict src, size_t size);
+int					ft_linenum(const char *string);
+int					ft_skipspace(const char *str);
+t_list				*ft_lstnew(void const *content, size_t content_size);
+void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+int					ft_skipzero(const char *str);
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 #endif

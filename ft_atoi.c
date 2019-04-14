@@ -6,34 +6,37 @@
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:34:27 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/12 21:19:12 by tlorine          ###   ########.fr       */
+/*   Updated: 2019/04/14 20:50:14 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
 	int				i;
 	int				minus;
+	int				g;
 	long long int	nb;
 
-	i = 0;
+	g = 0;
 	nb = 0;
-	minus = 1;
-	while (str[i] == '\t' || str[i] == '\v' || str[i] == '\r' || str[i] == '0'
-	|| str[i] == ' ' || str[i] == '\n' || str[i] == '\f')
+	i = ft_skipspace(str);
+	minus = (str[i] == '-' ? -1 : 1);
+	if (str[i] == '-' || str[i] == '+')
 		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
-	{
-		minus = minus * -1;
-		i++;
-	}
+	nb = ft_skipzero(str + i);
+	i = i + nb;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		nb = nb * 10;
-		nb = nb + str[i] - '0';
+		g++;
 		i++;
 	}
-	return (nb * minus);
+	if ((g == 19 && ft_strcmp(str + i - g, "9223372036854775808") >= 0
+				&& minus < 0) || (g > 19 && minus < 0))
+		return (0);
+	if ((g == 19 && ft_strcmp(str + i - g, "9223372036854775808") >= 0)
+			|| (g > 19))
+		return (-1);
+	return (ft_linenum(str + i - g - nb) * minus);
 }

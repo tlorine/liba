@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flines.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 17:39:52 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/13 16:26:25 by tlorine          ###   ########.fr       */
+/*   Created: 2019/04/13 14:44:04 by tlorine           #+#    #+#             */
+/*   Updated: 2019/04/14 20:43:04 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-char	**ft_flines(char **p, char const *s, char c)
+size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
 {
-	int i;
-	int n;
-	int h;
+	size_t i;
+	size_t d;
 
-	n = 0;
-	h = 0;
 	i = 0;
-	while (s[i] != '\0' && n < ft_qlines(s, c))
+	d = 0;
+	while (dst[d] && d < size)
+		d++;
+	while ((i + d + 1) < size && src[i])
 	{
-		while (s[i] == c)
-			i++;
-		while (s[i] != c && s[i] != '\0')
-		{
-			p[n][h] = s[i];
-			i++;
-			h++;
-		}
-		p[n][h] = '\0';
-		h = 0;
-		n++;
+		dst[d + i] = src[i];
+		i++;
 	}
-	p[n] = 0;
-	return (p);
+	if (d < size)
+		dst[d + i] = '\0';
+	return (d + ft_strlen(src));
 }

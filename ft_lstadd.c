@@ -1,40 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flines.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 17:39:52 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/13 16:26:25 by tlorine          ###   ########.fr       */
+/*   Created: 2019/04/14 20:01:26 by tlorine           #+#    #+#             */
+/*   Updated: 2019/04/14 20:13:06 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_flines(char **p, char const *s, char c)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	int i;
-	int n;
-	int h;
+	t_list *element;
 
-	n = 0;
-	h = 0;
-	i = 0;
-	while (s[i] != '\0' && n < ft_qlines(s, c))
-	{
-		while (s[i] == c)
-			i++;
-		while (s[i] != c && s[i] != '\0')
-		{
-			p[n][h] = s[i];
-			i++;
-			h++;
-		}
-		p[n][h] = '\0';
-		h = 0;
-		n++;
-	}
-	p[n] = 0;
-	return (p);
+	element = *alst;
+	*alst = new;
+	new->next = element;
 }

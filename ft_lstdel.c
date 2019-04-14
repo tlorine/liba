@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flines.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 17:39:52 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/13 16:26:25 by tlorine          ###   ########.fr       */
+/*   Created: 2019/04/14 19:11:29 by tlorine           #+#    #+#             */
+/*   Updated: 2019/04/14 19:56:58 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_flines(char **p, char const *s, char c)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	int i;
-	int n;
-	int h;
+	t_list *save;
 
-	n = 0;
-	h = 0;
-	i = 0;
-	while (s[i] != '\0' && n < ft_qlines(s, c))
+	while (*alst)
 	{
-		while (s[i] == c)
-			i++;
-		while (s[i] != c && s[i] != '\0')
-		{
-			p[n][h] = s[i];
-			i++;
-			h++;
-		}
-		p[n][h] = '\0';
-		h = 0;
-		n++;
+		save = (*alst)->next;
+		ft_lstdelone(alst, del);
+		*alst = save;
 	}
-	p[n] = 0;
-	return (p);
 }

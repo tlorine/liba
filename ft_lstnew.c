@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 17:44:36 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/13 16:23:06 by tlorine          ###   ########.fr       */
+/*   Created: 2019/04/14 15:21:31 by tlorine           #+#    #+#             */
+/*   Updated: 2019/04/14 21:26:13 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	**ft_strsplit(char const *s, char c)
+t_list	*ft_lstnew(void	const *content, size_t content_size)
 {
-	int		i;
-	int		n;
-	int		h;
-	char	**p;
+	t_list *element;
 
-	i = 0;
-	n = 0;
-	h = 0;
-	if (!s)
+	if (!(element = (t_list*)malloc(sizeof(t_list))))
 		return (NULL);
-	if (!(p = (char **)malloc(ft_qlines(s, c) * sizeof(char *) + 1)))
-		return (0);
-	while (s[i] != '\0')
+	if (content == NULL)
 	{
-		while (s[i] == c && s[i])
-			i++;
-		while (s[i] != c && s[i] != '\0')
-		{
-			i++;
-			h++;
-		}
-		p[n++] = (char*)malloc(sizeof(char) * (h + 1));
-		h = 0;
+		element->content = NULL;
+		element->content_size = 0;
 	}
-	return (p = ft_flines(p, s, c));
+	else
+	{
+		if (!(element->content = malloc(content_size)))
+		{
+			free(element);
+			return (NULL);
+		}
+		ft_memcpy(element->content, content, content_size);
+		element->content_size = content_size;
+	}
+	element->next = NULL;
+	return (element);
 }

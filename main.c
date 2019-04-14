@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flines.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 17:39:52 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/13 16:26:25 by tlorine          ###   ########.fr       */
+/*   Created: 2019/04/13 17:06:35 by tlorine           #+#    #+#             */
+/*   Updated: 2019/04/14 20:18:09 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "libft.h"
 
-char	**ft_flines(char **p, char const *s, char c)
+int	main(int argc, char **argv)
 {
-	int i;
-	int n;
-	int h;
+	int num;
 
-	n = 0;
-	h = 0;
-	i = 0;
-	while (s[i] != '\0' && n < ft_qlines(s, c))
+	if (argc != 3)
+		return (0);
+	if (ft_strcmp(argv[1], "ft_itoa") == 0)
 	{
-		while (s[i] == c)
-			i++;
-		while (s[i] != c && s[i] != '\0')
-		{
-			p[n][h] = s[i];
-			i++;
-			h++;
-		}
-		p[n][h] = '\0';
-		h = 0;
-		n++;
+		num = atoi(argv[2]);
+		printf("ft_itoa : %s\n", ft_itoa(num));
+		printf("atoi : %d\n", num);
 	}
-	p[n] = 0;
-	return (p);
+	if (ft_strcmp(argv[1], "ft_atoi") == 0)
+	{
+		printf("ft_Atoi : %d\n", ft_atoi(argv[2]));
+		printf("atoi : %d\n", atoi(argv[2]));
+	}
 }

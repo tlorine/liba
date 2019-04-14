@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flines.c                                        :+:      :+:    :+:   */
+/*   ft_linenum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 17:39:52 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/13 16:26:25 by tlorine          ###   ########.fr       */
+/*   Created: 2019/04/13 21:30:44 by tlorine           #+#    #+#             */
+/*   Updated: 2019/04/14 20:16:34 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	**ft_flines(char **p, char const *s, char c)
+int		ft_linenum(const char *string)
 {
-	int i;
-	int n;
-	int h;
+	int	i;
+	int	nb;
 
-	n = 0;
-	h = 0;
 	i = 0;
-	while (s[i] != '\0' && n < ft_qlines(s, c))
+	nb = 0;
+	while (string[i] >= '0' && string[i] <= '9')
 	{
-		while (s[i] == c)
-			i++;
-		while (s[i] != c && s[i] != '\0')
-		{
-			p[n][h] = s[i];
-			i++;
-			h++;
-		}
-		p[n][h] = '\0';
-		h = 0;
-		n++;
+		nb = (nb * 10) + (string[i] - '0');
+		i++;
 	}
-	p[n] = 0;
-	return (p);
+	return (nb);
 }
