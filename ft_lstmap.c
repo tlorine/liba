@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/13 17:06:35 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/14 20:18:09 by tlorine          ###   ########.fr       */
+/*   Created: 2019/04/15 16:04:57 by tlorine           #+#    #+#             */
+/*   Updated: 2019/04/15 17:24:16 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
-int	main(int argc, char **argv)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int num;
+	t_list *sp;
+	t_list *new;
 
-	if (argc != 3)
-		return (0);
-	if (ft_strcmp(argv[1], "ft_itoa") == 0)
+	if (!lst || !f)
+		return (NULL);
+	sp = f(lst);
+	new = sp;
+	while (lst->next)
 	{
-		num = atoi(argv[2]);
-		printf("ft_itoa : %s\n", ft_itoa(num));
-		printf("atoi : %d\n", num);
+		lst = lst->next;
+		if (!(sp->next = f(lst)))
+		{
+			free(sp->next);
+			return (NULL);
+		}
+		sp = sp->next;
 	}
-	if (ft_strcmp(argv[1], "ft_atoi") == 0)
-	{
-		printf("ft_Atoi : %d\n", ft_atoi(argv[2]));
-		printf("atoi : %d\n", atoi(argv[2]));
-	}
+	return (new);
 }
