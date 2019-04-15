@@ -6,7 +6,7 @@
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 20:24:41 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/15 16:09:08 by tlorine          ###   ########.fr       */
+/*   Updated: 2019/04/15 18:12:02 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *srcm, size_t len);
-char				*ft_strcat(char *restrict s1, const char *restrict s2);
+char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat\
-					(char *restrict s1, const char *restrict s2, size_t n);
+					(char *s1, const char *s2, size_t n);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr\
@@ -83,7 +83,7 @@ int					ft_qlines(char const *s, char c);
 char				**ft_flines(char **p, char const *s, char c);
 char				**ft_strsplit(char const *s, char c);
 size_t				ft_strlcat\
-					(char *restrict dst, const char *restrict src, size_t size);
+					(char *dst, const char *src, size_t size);
 int					ft_linenum(const char *string);
 int					ft_skipspace(const char *str);
 t_list				*ft_lstnew(void const *content, size_t content_size);

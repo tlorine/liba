@@ -6,11 +6,11 @@
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:12:29 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/05 14:47:17 by tlorine          ###   ########.fr       */
+/*   Updated: 2019/04/15 18:09:45 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
 	int i;
 	int c;

@@ -6,14 +6,14 @@
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/13 14:44:04 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/14 20:43:04 by tlorine          ###   ########.fr       */
+/*   Updated: 2019/04/15 18:12:19 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "libft.h"
 
-size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t i;
 	size_t d;
