@@ -6,7 +6,7 @@
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:34:27 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/14 20:50:14 by tlorine          ###   ########.fr       */
+/*   Updated: 2019/04/15 19:22:34 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_atoi(const char *str)
 	minus = (str[i] == '-' ? -1 : 1);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	nb = ft_skipzero(str + i);
+	nb = ft_skipchar(str + i, '0');
 	i = i + nb;
 	while (str[i] >= '0' && str[i] <= '9')
 	{

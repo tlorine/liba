@@ -6,7 +6,7 @@
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 20:24:41 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/15 18:12:02 by tlorine          ###   ########.fr       */
+/*   Updated: 2019/04/15 19:21:35 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-int					ft_skipzero(const char *str);
+int					ft_skipchar(const char *str, char c);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 #endif

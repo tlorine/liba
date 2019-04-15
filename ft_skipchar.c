@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_skipzero.c                                      :+:      :+:    :+:   */
+/*   ft_skipchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlorine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/14 20:48:38 by tlorine           #+#    #+#             */
-/*   Updated: 2019/04/14 20:49:01 by tlorine          ###   ########.fr       */
+/*   Created: 2019/04/15 19:21:18 by tlorine           #+#    #+#             */
+/*   Updated: 2019/04/15 19:21:41 by tlorine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_skipzero(const char *str)
+int	ft_skipchar(const char *str, char c)
 {
 	int i;
 
 	i = 0;
-	while (str[i] == '0')
+	while (str[i] == c)
 		i++;
 	return (i);
 }
